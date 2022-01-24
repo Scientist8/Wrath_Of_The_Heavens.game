@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GamePanelUI : MonoBehaviour
 {
-    public static bool _gameIsPaused = false;
-
     public GameObject _pauseMenuPanel;
 
     public Text _gameScoreText;
@@ -14,15 +12,13 @@ public class GamePanelUI : MonoBehaviour
     public void ResumeGame()
     {
         _pauseMenuPanel.SetActive(false);
-        Time.timeScale = 1f;
-        _gameIsPaused = false;
+        GameManager.Instance.GameResume();
     }
 
     public void PauseGame()
     {
         _pauseMenuPanel.SetActive(true);
-        Time.timeScale = 0f;
-        _gameIsPaused = true;
+        GameManager.Instance.GamePause();
     }
 
     void Update()

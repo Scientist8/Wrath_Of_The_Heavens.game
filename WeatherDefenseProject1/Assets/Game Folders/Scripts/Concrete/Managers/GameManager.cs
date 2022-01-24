@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool _gameIsPaused = false;
+
     public int _score = 0;
     public int _goldCoinCount = 0;
 
@@ -33,6 +35,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void GamePause()
+    {
+        Time.timeScale = 0f;
+        _gameIsPaused = true;
+    }
+
+    public void GameResume()
+    {
+        Time.timeScale = 1f;
+        _gameIsPaused = false;
     }
 
     public void IncreaseScore( int scoreToGive)

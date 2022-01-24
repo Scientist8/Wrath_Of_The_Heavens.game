@@ -178,6 +178,10 @@ MonoBehaviour:
   _enemy3HealthPoint: 20
   _enemy4HealthPoint: 0
   _scoreToGive: 17
+  _enemy1Score: 0
+  _enemy2Score: 0
+  _enemy3Score: 17
+  _enemy4Score: 0
   _isDead: 0
   _moveSpeed: 0.9
   _moveSpeed1: 0

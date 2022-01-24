@@ -34,6 +34,7 @@ public class ForGoldCoin : MonoBehaviour
                 {
                     GameManager.Instance.IncreaseScore(_bonusToGive);
                     GameManager.Instance.IncreaseGoldCoin(_goldCoinCount);
+                    //PlayerPrefs.DeleteKey("GoldCoin");
 
                     Destroy(hit.collider.gameObject);
                 }

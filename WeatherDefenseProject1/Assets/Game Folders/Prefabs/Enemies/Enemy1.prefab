@@ -82,7 +82,7 @@ MonoBehaviour:
   _enemy3HealthPoint: 0
   _enemy4HealthPoint: 0
   _scoreToGive: 4
-  _enemy1Score: 0
+  _enemy1Score: 4
   _enemy2Score: 0
   _enemy3Score: 0
   _enemy4Score: 0

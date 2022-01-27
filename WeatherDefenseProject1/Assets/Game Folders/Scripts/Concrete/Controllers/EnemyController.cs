@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        if (_enemyHealthPoints == 0 || transform.position.y < -5)
+        if (_enemyHealthPoints <= 0 || transform.position.y < -5)
         {
             _isDead = true;
             GameManager.Instance.IncreaseScore(_scoreToGive);

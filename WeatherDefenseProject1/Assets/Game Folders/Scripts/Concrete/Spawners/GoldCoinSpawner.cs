@@ -12,6 +12,8 @@ public class GoldCoinSpawner : MonoBehaviour
 
     [SerializeField] bool _onOffSwitch = false;
 
+    public int _maxGoldCoin = 25 , _minGoldCoin = 15;
+
     private void Awake()
     {
         _levelEnder = FindObjectOfType<LevelEnder>();
@@ -38,7 +40,7 @@ public class GoldCoinSpawner : MonoBehaviour
         {
             _onOffSwitch = true;
 
-            for (int i = 0; i < Random.Range(15, 25); i++)
+            for (int i = 0; i < Random.Range(_minGoldCoin, _maxGoldCoin); i++)
             {
                 Instantiate(_goldPrefab, new Vector3(Random.Range(-10, 10), transform.position.y, Random.Range(-2, 2)), Quaternion.identity);
             }

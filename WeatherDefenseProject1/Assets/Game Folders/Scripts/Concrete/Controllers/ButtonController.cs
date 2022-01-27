@@ -12,6 +12,11 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject _lightningStormPrefab;
     [SerializeField] GameObject _tornadoPrefab;
 
+    public int _meteorDamage = 1;
+    public int _lightningDamage = 1;
+    public int _tornadoDamage = 1;
+    public int _earthquakeDamage = 1;
+
     private void Awake()
     {
         _cameraShaker = FindObjectOfType<CameraShaker>();
@@ -30,7 +35,7 @@ public class ButtonController : MonoBehaviour
 
         for (int i = 0; i < _enemyController.Length; i++)
         {
-            _enemyController[i]._enemyHealthPoints--;
+            _enemyController[i]._enemyHealthPoints -= _meteorDamage;
         }
     }
 
@@ -43,7 +48,7 @@ public class ButtonController : MonoBehaviour
 
         for (int i = 0; i < _enemyController.Length; i++)
         {
-            _enemyController[i]._enemyHealthPoints--;
+            _enemyController[i]._enemyHealthPoints -= _lightningDamage;
         }
     }
 
@@ -53,7 +58,7 @@ public class ButtonController : MonoBehaviour
 
         for (int i = 0; i < _enemyController.Length; i++)
         {
-            _enemyController[i]._enemyHealthPoints--;
+            _enemyController[i]._enemyHealthPoints -= _tornadoDamage;
         }
     }
 
@@ -63,7 +68,7 @@ public class ButtonController : MonoBehaviour
 
         for (int i = 0; i < _enemyController.Length; i++)
         {
-            _enemyController[i]._enemyHealthPoints--;
+            _enemyController[i]._enemyHealthPoints -= _earthquakeDamage;
         }
     }
 }

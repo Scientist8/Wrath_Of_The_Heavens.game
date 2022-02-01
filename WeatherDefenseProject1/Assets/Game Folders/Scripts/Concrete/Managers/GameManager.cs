@@ -58,5 +58,7 @@ public class GameManager : MonoBehaviour
     {
         _goldCoinCount += coinToGive;
         PlayerPrefs.SetInt("GoldCoin", _goldCoinCount);
+
+        AudioManager.instance.PlaySound("GoldCoin");
     }
 }

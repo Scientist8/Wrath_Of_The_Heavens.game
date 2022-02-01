@@ -33,6 +33,8 @@ public class ButtonController : MonoBehaviour
     {
         Instantiate(_meteorPrefab, transform.position, Quaternion.identity);
 
+        AudioManager.instance.PlaySound("Meteor");
+
         for (int i = 0; i < _enemyController.Length; i++)
         {
             _enemyController[i]._enemyHealthPoints -= _meteorDamage;
@@ -41,6 +43,8 @@ public class ButtonController : MonoBehaviour
 
     public void LightningStorm()
     {
+        AudioManager.instance.PlaySound("Lightning");
+
         for (int i = 0; i < Random.Range(15, 40); i++)
         {
             Instantiate(_lightningStormPrefab, new Vector3(Random.Range(-10, 10), transform.position.y, Random.Range(-2, 2)), Quaternion.identity);
@@ -56,6 +60,8 @@ public class ButtonController : MonoBehaviour
     {
         Instantiate(_tornadoPrefab, new Vector3 (-20, 3, 0), Quaternion.identity);
 
+        AudioManager.instance.PlaySound("Tornado");
+
         for (int i = 0; i < _enemyController.Length; i++)
         {
             _enemyController[i]._enemyHealthPoints -= _tornadoDamage;
@@ -65,6 +71,8 @@ public class ButtonController : MonoBehaviour
     public void EarthQuake()
     {
         _cameraShaker.ShakeIt();
+
+        AudioManager.instance.PlaySound("Earthquake");
 
         for (int i = 0; i < _enemyController.Length; i++)
         {

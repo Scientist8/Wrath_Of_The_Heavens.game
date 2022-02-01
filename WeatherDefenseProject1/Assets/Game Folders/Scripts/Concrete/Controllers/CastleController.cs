@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CastleController : MonoBehaviour
 {
-    LevelManager _levelManager;
+    GamePanelUI _gamePanel;
 
 
     public int _castleHealth;
@@ -16,7 +16,7 @@ public class CastleController : MonoBehaviour
 
     private void Awake()
     {
-        _levelManager = FindObjectOfType<LevelManager>();
+        _gamePanel = FindObjectOfType<GamePanelUI>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -36,7 +36,6 @@ public class CastleController : MonoBehaviour
                 _castleHealth -= _enemy4Damage;
                 break;
         }
-
     }
 
     private void Update()
@@ -44,7 +43,7 @@ public class CastleController : MonoBehaviour
 
         if (_castleHealth <= 0)
         {
-            _levelManager.LoadEndScene();
+            _gamePanel.ActivateFailMenu();
         }
     }
 

@@ -8,7 +8,7 @@ public class GoldCoinSpawner : MonoBehaviour
     [SerializeField] GameObject[] _UIButtons;
 
     LevelEnder _levelEnder;
-    LevelManager _levelManager;
+    GamePanelUI _gamePanel;
 
     [SerializeField] bool _onOffSwitch = false;
 
@@ -17,7 +17,7 @@ public class GoldCoinSpawner : MonoBehaviour
     private void Awake()
     {
         _levelEnder = FindObjectOfType<LevelEnder>();
-        _levelManager = FindObjectOfType<LevelManager>();
+        _gamePanel = FindObjectOfType<GamePanelUI>();
     }
 
     private void Update()
@@ -30,7 +30,9 @@ public class GoldCoinSpawner : MonoBehaviour
             {
                 _UIButtons[i].SetActive(false);
             }
-            Invoke("CallNextLevel", 5f);
+
+
+            Invoke("ActivateLevelEndScreen", 5f);
         }
     }
 
@@ -38,6 +40,8 @@ public class GoldCoinSpawner : MonoBehaviour
     {
         if (_levelEnder._levelHasEnded == true && _onOffSwitch == false)
         {
+            AudioManager.instance.PlaySound("LevelComplete");
+
             _onOffSwitch = true;
 
             for (int i = 0; i < Random.Range(_minGoldCoin, _maxGoldCoin); i++)
@@ -47,8 +51,8 @@ public class GoldCoinSpawner : MonoBehaviour
         }
     }
 
-    void CallNextLevel()
+    void ActivateLevelEndScreen()
     {
-        _levelManager.LoadNextLevel();
+        _gamePanel.ActivateEndLevelMenu();
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    Animator _animator;
+
     public int _enemyHealthPoints;
     public int _enemy1HealthPoint, _enemy2HealthPoint, _enemy3HealthPoint, _enemy4HealthPoint;
 
@@ -20,6 +22,8 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
+        _animator = GetComponent<Animator>();
+
         _enemyHealthPoints = _enemy1HealthPoint + _enemy2HealthPoint + _enemy3HealthPoint + _enemy4HealthPoint;
         _scoreToGive = _enemy1Score + _enemy2Score + _enemy3Score + _enemy4Score;
         _moveSpeed = _moveSpeed1 + _moveSpeed2 + _moveSpeed3 + _moveSpeed4;
@@ -37,8 +41,17 @@ public class EnemyController : MonoBehaviour
         if (_enemyHealthPoints <= 0 || transform.position.y < -5)
         {
             _isDead = true;
-            GameManager.Instance.IncreaseScore(_scoreToGive);
-            Destroy(gameObject);
+
+            // Play death sound
+            FindObjectOfType<AudioManager>().PlaySound("EnemyDeath");
+
+
+            //Animator has no bool, just activates itself
+            _animator.enabled = true;
+
+            Invoke("IncreaseScore", 0.999f);
+
+            Invoke("DestroyThis", 1f);
         }
     }
 
@@ -48,5 +61,15 @@ public class EnemyController : MonoBehaviour
         float zValue = Random.Range(-_randomSpeedFactorZ, _randomSpeedFactorZ) * Time.deltaTime * _moveSpeed;
 
         transform.Translate(xValue, 0, zValue);
+    }
+
+    void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
+
+    void IncreaseScore()
+    {
+        GameManager.Instance.IncreaseScore(_scoreToGive);
     }
 }

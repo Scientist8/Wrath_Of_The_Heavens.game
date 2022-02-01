@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wavePrefabs:
-  - {fileID: 4018837963150315517, guid: 86f50e7c633b06a47ada9454252d73e4, type: 3}
-  - {fileID: 4018837963150315517, guid: 86f50e7c633b06a47ada9454252d73e4, type: 3}
-  - {fileID: 4018837963150315517, guid: 86f50e7c633b06a47ada9454252d73e4, type: 3}
+  - {fileID: 2879249145789989766, guid: 129e480924ff7ce4cb933f6b445a8ea3, type: 3}
+  - {fileID: 1605065509314422833, guid: cbaca2fa0e6679a419bc00f65db92fee, type: 3}
+  - {fileID: 8078832994733406935, guid: 6ce8fc63fded6574caa792d474bdf175, type: 3}
   _waveSpawner: {fileID: 3267706854084591234}
   _lastWaveCame: 0
   _waveTimeInterval1: 10
@@ -331,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3267706854734948906}
   - component: {fileID: 3267706854734948907}
+  - component: {fileID: 774775212}
   m_Layer: 0
   m_Name: ButtonController&Spawner
   m_TagString: Untagged
@@ -367,6 +368,31 @@ MonoBehaviour:
   _meteorPrefab: {fileID: 6700605259381528388, guid: 8f9140beae782484695fc196b85b9ed9, type: 3}
   _lightningStormPrefab: {fileID: 8594746359632492101, guid: 5fdb28e1994e54f42abc450683271f55, type: 3}
   _tornadoPrefab: {fileID: 8716716748749207031, guid: 42761281a90ab614ca2e316fd8ed236d, type: 3}
+  _meteorDamage: 1
+  _lightningDamage: 1
+  _tornadoDamage: 1
+  _earthquakeDamage: 1
+--- !u!114 &774775212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267706854734948904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26999fa828636fe4092b40d9beea2218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldPrefab: {fileID: 8382833742224230623, guid: 9885137a05b7574488a5bf3b495a0a6b, type: 3}
+  _UIButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _onOffSwitch: 0
+  _maxGoldCoin: 25
+  _minGoldCoin: 15
 --- !u!1 &3267706854804224280
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+
     public void ReloadLevel()
     {
-        int currenSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currenSceneIndex);
+        int currenSceneIndex = SceneManager.GetActiveScene().buildIndex;       
+        SceneManager.LoadScene(currenSceneIndex);        
     }
 
     public void LoadNextLevel()

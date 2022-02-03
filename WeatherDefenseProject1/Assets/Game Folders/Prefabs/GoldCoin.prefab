@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8382833742224230622}
   - component: {fileID: 8382833742224230613}
   - component: {fileID: 8382833742224230610}
+  - component: {fileID: 2679098187639305647}
   m_Layer: 14
   m_Name: GoldCoin
   m_TagString: GoldCoin
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8382833742224230623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10.81, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,3 +128,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bonusToGive: 5
   _goldCoinCount: 1
+--- !u!95 &2679098187639305647
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382833742224230623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99aae7ebcc02c174c99d66e8d488bbe2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

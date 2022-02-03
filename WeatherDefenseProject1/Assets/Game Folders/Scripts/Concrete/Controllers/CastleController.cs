@@ -6,6 +6,10 @@ public class CastleController : MonoBehaviour
 {
     GamePanelUI _gamePanel;
 
+    LevelEnder _levelEnder;
+
+    [SerializeField] ParticleSystem _successParticles;
+
 
     public int _castleHealth;
 
@@ -17,6 +21,7 @@ public class CastleController : MonoBehaviour
     private void Awake()
     {
         _gamePanel = FindObjectOfType<GamePanelUI>();
+        _levelEnder = FindObjectOfType<LevelEnder>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -44,6 +49,11 @@ public class CastleController : MonoBehaviour
         if (_castleHealth <= 0)
         {
             _gamePanel.ActivateFailMenu();
+        }
+
+        if (_levelEnder._levelHasEnded)
+        {
+            _successParticles.Play();
         }
     }
 

@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     Animator _animator;
 
+    [SerializeField] ParticleSystem _enemyDeathParticle;
+
     public int _enemyHealthPoints;
     public int _enemy1HealthPoint, _enemy2HealthPoint, _enemy3HealthPoint, _enemy4HealthPoint;
 
@@ -34,6 +36,7 @@ public class EnemyController : MonoBehaviour
     {
         Move();
         Die();
+        PlayDeathParticleEffect();
     }
 
     void Die()
@@ -49,23 +52,43 @@ public class EnemyController : MonoBehaviour
             //Animator has no bool, just activates itself
             _animator.enabled = true;
 
-            Invoke("IncreaseScore", 0.999f);
 
+            Invoke("IncreaseScore", 0.999f);
+            //Invoke("PlayDeathParticleEffect", 0.9f);
             Invoke("DestroyThis", 1f);
         }
     }
 
     void Move()
     {
-        float xValue = Random.Range(-1f, -2f) * Time.deltaTime * _moveSpeed;
-        float zValue = Random.Range(-_randomSpeedFactorZ, _randomSpeedFactorZ) * Time.deltaTime * _moveSpeed;
+        if (!_isDead)
+        {
+            float xValue = Random.Range(-1f, -2f) * Time.deltaTime * _moveSpeed;
+            float zValue = Random.Range(-_randomSpeedFactorZ, _randomSpeedFactorZ) * Time.deltaTime * _moveSpeed;
 
-        transform.Translate(xValue, 0, zValue);
+            transform.Translate(xValue, 0, zValue);
+
+
+            _enemyDeathParticle.Stop();
+        }
+       
     }
 
     void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    void PlayDeathParticleEffect()
+    {
+        if (_isDead)
+        {
+            if (!_enemyDeathParticle.isPlaying)
+            {
+                _enemyDeathParticle.Play();
+            }
+        }
+        
     }
 
     void IncreaseScore()

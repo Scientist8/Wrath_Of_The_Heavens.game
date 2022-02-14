@@ -13,7 +13,8 @@ public class LightningController : MonoBehaviour
 
     void Update()
     {
-        _rb.AddForce(new Vector3(Random.Range(-3, 3), -2, Random.Range(-2, 2)));
+        //_rb.AddForce(new Vector3(Random.Range(-3, 3), -5, Random.Range(-2, 2)));
+        _rb.AddForce(new Vector3(0, -10, 0));
     }
 
     private void OnCollisionEnter(Collision collision)

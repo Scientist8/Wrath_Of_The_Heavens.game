@@ -32,7 +32,7 @@ public class GamePanelUI : MonoBehaviour
     void Update()
     {
         _gameScoreText.text = GameManager.Instance._score.ToString();
-        _goldCoinText.text = "Gold: " + GameManager.Instance._goldCoinCount.ToString();
+        _goldCoinText.text = "x" + GameManager.Instance._goldCoinCount.ToString();
 
         _endLevelScoreText.text = "Score: " + GameManager.Instance._score.ToString();
         _endLevelGoldText.text = "Gold: " + GameManager.Instance._goldCoinCount.ToString();

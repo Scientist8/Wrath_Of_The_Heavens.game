@@ -16,7 +16,7 @@ public class MeteorController : MonoBehaviour
         _collider = GetComponent<Collider>();
         _renderer = GetComponent<Renderer>();
 
-        _rb.AddForce(new Vector3(2, -3, 0));
+        _rb.AddForce(new Vector3(2, -15, 0));
     }
 
     private void OnCollisionEnter(Collision collision)

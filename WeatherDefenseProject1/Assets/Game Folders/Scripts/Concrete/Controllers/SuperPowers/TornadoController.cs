@@ -6,8 +6,8 @@ public class TornadoController : MonoBehaviour
 {
     Rigidbody _rb;
 
-    [SerializeField] float _moveSpeed = 3f;
-    [SerializeField] float _rotateY = 5f;
+    [SerializeField] float _moveSpeed = 20f;
+    [SerializeField] float _rotateY = 3f;
 
     void Start()
     {

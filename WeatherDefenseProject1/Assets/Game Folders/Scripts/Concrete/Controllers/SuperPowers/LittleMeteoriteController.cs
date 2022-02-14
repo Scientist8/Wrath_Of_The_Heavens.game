@@ -14,7 +14,8 @@ public class LittleMeteoriteController : MonoBehaviour
 
     void Update()
     {
-        _rb.AddForce(new Vector3(5, 0, 5) * Random.Range(-2, 2));
+        //_rb.AddForce(new Vector3(5, 0, 5) * Random.Range(-2, 2));
+        _rb.AddForce(new Vector3(Random.Range(-50, 50), 0, Random.Range(-100, 100)));
     }
     void Destroy()
     {

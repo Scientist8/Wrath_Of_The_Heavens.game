@@ -80,26 +80,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDeathParticle: {fileID: 5828150330768269217}
   _enemyHealthPoints: 12
-  _enemy1HealthPoint: 0
-  _enemy2HealthPoint: 12
-  _enemy3HealthPoint: 0
-  _enemy4HealthPoint: 0
   _scoreToGive: 10
-  _enemy1Score: 0
-  _enemy2Score: 10
-  _enemy3Score: 0
-  _enemy4Score: 0
   _isDead: 0
-  _moveSpeed: 1
-  _moveSpeed1: 0
-  _moveSpeed2: 1
-  _moveSpeed3: 0
-  _moveSpeed4: 0
+  _moveSpeed: 5
   _randomSpeedFactorZ: 1.5
-  _randomSpeedFactorZ1: 0
-  _randomSpeedFactorZ2: 1.5
-  _randomSpeedFactorZ3: 0
-  _randomSpeedFactorZ4: 0
 --- !u!95 &-1553285593633952627
 Animator:
   serializedVersion: 3

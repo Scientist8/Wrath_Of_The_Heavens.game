@@ -45,9 +45,9 @@ public class ButtonController : MonoBehaviour
     {
         AudioManager.instance.PlaySound("Lightning");
 
-        for (int i = 0; i < Random.Range(15, 40); i++)
+        for (int i = 0; i < Random.Range(30, 50); i++)
         {
-            Instantiate(_lightningStormPrefab, new Vector3(Random.Range(-10, 10), transform.position.y, Random.Range(-2, 2)), Quaternion.identity);
+            Instantiate(_lightningStormPrefab, new Vector3(Random.Range(-10, 15), transform.position.y, Random.Range(-6, 6)), Quaternion.identity);
         }
 
         for (int i = 0; i < _enemyController.Length; i++)
@@ -58,7 +58,7 @@ public class ButtonController : MonoBehaviour
 
     public void Tornado()
     {
-        Instantiate(_tornadoPrefab, new Vector3 (-20, 3, 0), Quaternion.identity);
+        Instantiate(_tornadoPrefab, new Vector3 (-10, -2.5f, 0), Quaternion.identity);
 
         AudioManager.instance.PlaySound("Tornado");
 

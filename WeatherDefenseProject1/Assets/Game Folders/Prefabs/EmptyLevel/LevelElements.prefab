@@ -44,13 +44,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wavePrefabs:
-  - {fileID: 2879249145789989766, guid: 129e480924ff7ce4cb933f6b445a8ea3, type: 3}
-  - {fileID: 1605065509314422833, guid: cbaca2fa0e6679a419bc00f65db92fee, type: 3}
-  - {fileID: 8078832994733406935, guid: 6ce8fc63fded6574caa792d474bdf175, type: 3}
+  - {fileID: 2115248799957677509, guid: 921030a83b76d8f4eb21cf8ab081f17d, type: 3}
+  - {fileID: 2006590799399551462, guid: ac400bb7eab67c941bdb5c691a62dbf7, type: 3}
+  - {fileID: 2006927957216072996, guid: cf9adf64ae8523e4396d43ae0e04c13c, type: 3}
+  - {fileID: 8161517325078886529, guid: e50138ca53a76974d9116561b310b651, type: 3}
+  - {fileID: 921185839430271095, guid: 38da4dd47d37e9e49982ae22eca2233f, type: 3}
   _waveSpawner: {fileID: 3267706854084591234}
   _lastWaveCame: 0
-  _waveTimeInterval1: 10
-  _waveTimeInterval2: 20
+  _waveTimeInterval1: 6.5
+  _waveTimeInterval2: 13
+  _waveTimeInterval3: 19.5
+  _waveTimeInterval4: 26
 --- !u!1 &3267706854587229041
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +105,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3267706854587229041}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -513,13 +517,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3267706855057712880}
-  m_LocalRotation: {x: 0.20041882, y: 0.45040175, z: -0.10450934, w: 0.8637409}
-  m_LocalPosition: {x: -20.18, y: 13.04, z: -14.17}
+  m_LocalRotation: {x: 0.15119015, y: 0.47989193, z: -0.08435885, w: 0.86007494}
+  m_LocalPosition: {x: -18.44, y: 10.82, z: -10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2128083048026572116}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 26.127, y: 55.08, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.94, y: 58.32, z: 0}
 --- !u!20 &3267706855057712882
 Camera:
   m_ObjectHideFlags: 0

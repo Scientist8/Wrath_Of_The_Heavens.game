@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //Move();
+        Move();
         Die();
         PlayDeathParticleEffect();
     }

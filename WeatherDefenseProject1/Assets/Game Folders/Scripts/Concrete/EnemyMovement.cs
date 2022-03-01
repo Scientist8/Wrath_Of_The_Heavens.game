@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void GetNextWayPoint()
     {
-        _wayPointIndex++;
+        _wayPointIndex = Random.Range(0, 6);
         _target = WayPoints.points[_wayPointIndex];
     }
 }

@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xSize: 20
   _zSize: 20
-  _yHeight: 3
+  _yHeight: 3.5
 --- !u!23 &1988291242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5d290c96e9bedb4aaff6ddb571d5307, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

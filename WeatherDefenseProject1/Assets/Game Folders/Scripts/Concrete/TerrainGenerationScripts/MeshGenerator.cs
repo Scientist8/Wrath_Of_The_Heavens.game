@@ -21,7 +21,8 @@ public class MeshGenerator : MonoBehaviour
         _mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = _mesh;
 
-        StartCoroutine(CreateShape());
+        //StartCoroutine(CreateShape());
+        CreateShape();
 
     }
 
@@ -30,7 +31,7 @@ public class MeshGenerator : MonoBehaviour
         UpdateMesh();
     }
 
-    IEnumerator CreateShape()
+    void CreateShape()
     {
 
         _vertices = new Vector3[(_xSize + 1) * (_zSize + 1)];
@@ -67,7 +68,7 @@ public class MeshGenerator : MonoBehaviour
                 trias += 6;
 
 
-                yield return new WaitForSeconds(0.01f);
+                //yield return new WaitForSeconds(0.01f);
             }
             vert++; //Becuase the triangles are connecting each other in a weird way
         }

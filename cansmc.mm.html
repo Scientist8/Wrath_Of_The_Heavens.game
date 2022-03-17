@@ -1,0 +1,1430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Can's Moving Castle</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="fold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="unfold_document()">All -</SPAN>
+<p><a href="../Documents/Gray%20Lake%20Studios%20Journal.mm.html" target="_blank"><span class=l>~</span>&nbsp;Can's Moving Castle
+</a>
+<ul><li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+ART
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1" class="foldclosed" onClick="show_folder('1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1" class="foldopened" onClick="hide_folder('1_1_1')">-</span>
+Environment
+<ul id="fold1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>trees
+
+</li>
+<li>rocks
+
+</li>
+
+</ul>
+</li>
+<li>Player
+<ul><li>castle
+<ul><li>parts
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2" class="foldclosed" onClick="show_folder('1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_2" class="foldopened" onClick="hide_folder('1_1_2')">-</span>
+Enemies
+<ul id="fold1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li>10
+
+</li>
+<li>Bossx10
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Can and Sinan's Design</span>
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_1" class="foldclosed" onClick="show_folder('1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1" class="foldopened" onClick="hide_folder('1_2_1')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">CASTLE</span>
+<ul id="fold1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Interaction</span>
+<ul><li><span id="show1_2_1_1" class="foldclosed" onClick="show_folder('1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1_1" class="foldopened" onClick="hide_folder('1_2_1_1')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">EVENTS</span>
+<ul id="fold1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Protect</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Crush</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Enemies</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Chests</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Small enemy buildings</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Neolithic Ritual Locations</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Resources</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Wild</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Trees</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Berries</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Ore Rock</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Iron</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Coal</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Rocks</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Silver</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Gem</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Constructed</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Gold Mine</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Silver Mine</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Gem Mine</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Iron Mine</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Coal Mine</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Quarry</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Hunter's Hut</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Shack</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Village</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Hut</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">City</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Movement</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">automatic</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Attacks</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">automatic</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2" class="foldclosed" onClick="show_folder('1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_2" class="foldopened" onClick="hide_folder('1_2_2')">-</span>
+ENEMIES
+<ul id="fold1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>Concept changing every 100th level
+
+</li>
+<li>Regulars
+<ul><li>Cute enemies
+<ul><li>Fluffy
+
+</li>
+<li>Squarrel
+
+</li>
+<li>Walking fish
+
+</li>
+
+</ul>
+</li>
+<li>Funny ones
+<ul><li>Ciguli type
+
+</li>
+<li>Trendy jokes
+
+</li>
+<li>"Are ya winning son?"
+
+</li>
+
+</ul>
+</li>
+<li>Dangerous looking enemies
+<ul><li>Laser eyed walking fish
+
+</li>
+<li>Wolverine clawed cat
+
+</li>
+<li>A big walking castle
+
+</li>
+<li>Squarrel operating a robot
+
+</li>
+<li>Flying bird-like machines
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Bosses
+<ul><li>Provide souls
+
+</li>
+<li>Cute - Funny -Dangerous
+<ul><li>300th boss is a dangerous hamster
+
+</li>
+<li>500th boss an octopus tentacle
+<ul><li>1000th boss is the octopus
+
+</li>
+
+</ul>
+</li>
+<li>Half man - half android with a sad backstory
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3" class="foldclosed" onClick="show_folder('1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_2_3" class="foldopened" onClick="hide_folder('1_2_3')">-</span>
+PLAYER
+<ul id="fold1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li>upgrades
+
+</li>
+<li>controlls abilities
+
+</li>
+<li>sightseeing the environment
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4" class="foldclosed" onClick="show_folder('1_2_4')" style="POSITION: absolute">+</span> <span id="hide1_2_4" class="foldopened" onClick="hide_folder('1_2_4')">-</span>
+ABILITIES
+<ul id="fold1_2_4" style="POSITION: relative; VISIBILITY: visible;"><li>earthquake
+
+</li>
+<li>tornado
+
+</li>
+<li>lightning
+
+</li>
+<li>meteor
+
+</li>
+<li>raining arrows
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5" class="foldclosed" onClick="show_folder('1_2_5')" style="POSITION: absolute">+</span> <span id="hide1_2_5" class="foldopened" onClick="hide_folder('1_2_5')">-</span>
+MECHANICS
+<ul id="fold1_2_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_5_1" class="foldclosed" onClick="show_folder('1_2_5_1')" style="POSITION: absolute">+</span> <span id="hide1_2_5_1" class="foldopened" onClick="hide_folder('1_2_5_1')">-</span>
+idle
+<ul id="fold1_2_5_1" style="POSITION: relative; VISIBILITY: visible;"><li>reset
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_2" class="foldclosed" onClick="show_folder('1_2_5_2')" style="POSITION: absolute">+</span> <span id="hide1_2_5_2" class="foldopened" onClick="hide_folder('1_2_5_2')">-</span>
+upgrade
+<ul id="fold1_2_5_2" style="POSITION: relative; VISIBILITY: visible;"><li>gold upgrades
+<ul><li>Castle's dps
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">heroes</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">all kinds of heroes</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">unique characters with dps upgrades</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">mage</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">warrior</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">shooter</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">archer</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">cannoneers</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Castle's hull -tap damage
+
+</li>
+<li>One time purchases
+<ul><li>Potion for every ability
+
+</li>
+<li>Some power-ups
+
+</li>
+
+</ul>
+</li>
+<li>Resets with reset
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_2_1" class="foldclosed" onClick="show_folder('1_2_5_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_5_2_1" class="foldopened" onClick="hide_folder('1_2_5_2_1')">-</span>
+boss soul upgrades
+<ul id="fold1_2_5_2_1" style="POSITION: relative; VISIBILITY: visible;"><li>special heroes
+<ul><li>unique heroes that stays with reset
+
+</li>
+<li>dps upgrade
+
+</li>
+<li>more time for bosses
+
+</li>
+<li>more gold drops
+
+</li>
+<li>more souls
+
+</li>
+<li>small ability upgrades
+
+</li>
+
+</ul>
+</li>
+<li>Stays with reset
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_2_2" class="foldclosed" onClick="show_folder('1_2_5_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_5_2_2" class="foldopened" onClick="hide_folder('1_2_5_2_2')">-</span>
+special currency
+<ul id="fold1_2_5_2_2" style="POSITION: relative; VISIBILITY: visible;"><li>in game purchases
+
+</li>
+<li>stays with reset
+
+</li>
+<li>can buy everything
+
+</li>
+<li>special upgrades
+<ul><li>ability upgrades
+<ul><li>more variation for abilities
+
+</li>
+<li>more damage for abilities
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>player can get this from every 100 level bosses
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_3" class="foldclosed" onClick="show_folder('1_2_5_3')" style="POSITION: absolute">+</span> <span id="hide1_2_5_3" class="foldopened" onClick="hide_folder('1_2_5_3')">-</span>
+cast abilities
+<ul id="fold1_2_5_3" style="POSITION: relative; VISIBILITY: visible;"><li>abilities have physics 
+
+</li>
+<li>cooldowns
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_4" class="foldclosed" onClick="show_folder('1_2_5_4')" style="POSITION: absolute">+</span> <span id="hide1_2_5_4" class="foldopened" onClick="hide_folder('1_2_5_4')">-</span>
+combos
+<ul id="fold1_2_5_4" style="POSITION: relative; VISIBILITY: visible;"><li>if 2 enemies killed within 10 seconds, combo
+
+</li>
+<li>every 10 combo gives % damage
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_6" class="foldclosed" onClick="show_folder('1_2_6')" style="POSITION: absolute">+</span> <span id="hide1_2_6" class="foldopened" onClick="hide_folder('1_2_6')">-</span>
+ENVIRONMENT
+<ul id="fold1_2_6" style="POSITION: relative; VISIBILITY: visible;"><li>Enemy Buildings
+
+</li>
+<li>procedural generated terrain
+
+</li>
+<li>PATH
+
+</li>
+<li>Theme changes every 100 level
+
+</li>
+<li>Beautiful and mesmerizing
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Erhan Design</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">3D</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">ENVIRONMENT</span>
+<ul><li>Procedural generated 3D height Map
+<ul><li>Forest
+
+</li>
+<li>Lake
+
+</li>
+<li>Mountain
+
+</li>
+<li>Glacier
+
+</li>
+<li>Hills
+
+</li>
+<li>Meadow
+
+</li>
+<li>Biomes
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">2.5 D</span>
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">PATH</span>
+<ul><li>straight
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">CAMERA</span>
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;"><li><p>Camera Zooms in when upgrading
+<p>Camera always follows the Castle at a fixed 45 degree angle
+<p>Camera rotates to the corresponding counter location if there is an obstacle between the player and the Castle
+</li>
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">WIZARD of THE CASTLE</span>
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">CASTLE</span>
+<ul><li><span id="show1_4_1" class="foldclosed" onClick="show_folder('1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1" class="foldopened" onClick="hide_folder('1_4_1')">-</span>
+Movement
+<ul id="fold1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li>static direction
+<ul><li>winding and rounding paths across valleys and lakes and forests and mountains
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2" class="foldclosed" onClick="show_folder('1_4_2')" style="POSITION: absolute">+</span> <span id="hide1_4_2" class="foldopened" onClick="hide_folder('1_4_2')">-</span>
+Speed
+<ul id="fold1_4_2" style="POSITION: relative; VISIBILITY: visible;"><li><p>roughly at a steady pace, the speed only changes when castle comes across an obstacle that takes time to get rid of or requires player interaction
+</li>
+</ul>
+</li>
+<li>Size
+
+</li>
+<li>Hearth
+
+</li>
+<li>Attack
+
+</li>
+<li><span id="show1_4_3" class="foldclosed" onClick="show_folder('1_4_3')" style="POSITION: absolute">+</span> <span id="hide1_4_3" class="foldopened" onClick="hide_folder('1_4_3')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Sidekicks</span>
+<ul id="fold1_4_3" style="POSITION: relative; VISIBILITY: visible;"><li>Heroes with less complex buildings (house with legs, hopping tower, flying ship accompany the castle
+
+</li>
+<li>Just a regular hero accompany the castle
+
+</li>
+<li>tie them to mythological characters so that the player recognizes them
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Parts</span>
+<ul><li>Castle parts are upgradable and as they upgrade they also become visible or prominent graphically
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Guilds</span>
+<ul><li>Mages
+<ul><li>upgrades abilities
+
+</li>
+
+</ul>
+</li>
+<li>Warrior
+
+</li>
+<li>Rogues
+<ul><li>passive arrow fire
+
+</li>
+
+</ul>
+</li>
+<li>Cannoneers
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_4" class="foldclosed" onClick="show_folder('1_4_4')" style="POSITION: absolute">+</span> <span id="hide1_4_4" class="foldopened" onClick="hide_folder('1_4_4')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Workers</span>
+<ul id="fold1_4_4" style="POSITION: relative; VISIBILITY: visible;"><li>Hunters
+
+</li>
+<li>Stonecutters
+
+</li>
+<li>Lumberjacks
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_5" class="foldclosed" onClick="show_folder('1_4_5')" style="POSITION: absolute">+</span> <span id="hide1_4_5" class="foldopened" onClick="hide_folder('1_4_5')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Mechanics</span>
+<ul id="fold1_4_5" style="POSITION: relative; VISIBILITY: visible;"><li>Castle Hull
+
+</li>
+<li>Houses
+
+</li>
+<li>Walls
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_6" class="foldclosed" onClick="show_folder('1_4_6')" style="POSITION: absolute">+</span> <span id="hide1_4_6" class="foldopened" onClick="hide_folder('1_4_6')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Legs</span>
+<ul id="fold1_4_6" style="POSITION: relative; VISIBILITY: visible;"><li>Stronger Legs
+<ul><li>crush more obstacles more easily
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_7" class="foldclosed" onClick="show_folder('1_4_7')" style="POSITION: absolute">+</span> <span id="hide1_4_7" class="foldopened" onClick="hide_folder('1_4_7')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Hearth</span>
+<ul id="fold1_4_7" style="POSITION: relative; VISIBILITY: visible;"><li>more stamina
+
+</li>
+<li>longer movement without stopping
+
+</li>
+<li>more spells
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">ABILITIES</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Earthquake</span>
+<ul><li>collects more stone and wood and ore
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Meteor</span>
+<ul><li>damages enemies and yields ore
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Freezing Cold</span>
+<ul><li>reduces Hearth and freezes enemies
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Lightning</span>
+<ul><li>increases Hearth and damages and shocks enemies
+
+</li>
+
+</ul>
+</li>
+<li>Abilities have Physical effects
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">ENEMIES</span>
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;"><li>single
+
+</li>
+<li>multiple groups
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">PAWNS</span>
+<ul><li><span id="show1_5_1" class="foldclosed" onClick="show_folder('1_5_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1" class="foldopened" onClick="hide_folder('1_5_1')">-</span>
+animals
+<ul id="fold1_5_1" style="POSITION: relative; VISIBILITY: visible;"><li>wolf
+
+</li>
+<li>boar
+
+</li>
+<li>bear
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_2" class="foldclosed" onClick="show_folder('1_5_2')" style="POSITION: absolute">+</span> <span id="hide1_5_2" class="foldopened" onClick="hide_folder('1_5_2')">-</span>
+gnomes
+<ul id="fold1_5_2" style="POSITION: relative; VISIBILITY: visible;"><li>have guns
+
+</li>
+<li>explosives
+
+</li>
+<li>suicidal
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_3" class="foldclosed" onClick="show_folder('1_5_3')" style="POSITION: absolute">+</span> <span id="hide1_5_3" class="foldopened" onClick="hide_folder('1_5_3')">-</span>
+dwarfs
+<ul id="fold1_5_3" style="POSITION: relative; VISIBILITY: visible;"><li>machines
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_4" class="foldclosed" onClick="show_folder('1_5_4')" style="POSITION: absolute">+</span> <span id="hide1_5_4" class="foldopened" onClick="hide_folder('1_5_4')">-</span>
+giants
+<ul id="fold1_5_4" style="POSITION: relative; VISIBILITY: visible;"><li>yeti
+
+</li>
+<li>ettin
+
+</li>
+<li>hill giant
+
+</li>
+<li>mountain giant
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_5" class="foldclosed" onClick="show_folder('1_5_5')" style="POSITION: absolute">+</span> <span id="hide1_5_5" class="foldopened" onClick="hide_folder('1_5_5')">-</span>
+magical
+<ul id="fold1_5_5" style="POSITION: relative; VISIBILITY: visible;"><li>flaming
+
+</li>
+<li>ice
+
+</li>
+<li>demon
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_6" class="foldclosed" onClick="show_folder('1_5_6')" style="POSITION: absolute">+</span> <span id="hide1_5_6" class="foldopened" onClick="hide_folder('1_5_6')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Special Boss Pawns</span>
+<ul id="fold1_5_6" style="POSITION: relative; VISIBILITY: visible;"><li>Mad Dwarf Company
+
+</li>
+<li>Gnome Mechanic
+
+</li>
+<li>Ettin with a Problem
+<ul><li>has 3 heads instead of 2
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Drops
+<ul><li>Soul
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">erhan's magical monster and critter encyclopedia</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6" class="foldclosed" onClick="show_folder('1_6')" style="POSITION: absolute">+</span> <span id="hide1_6" class="foldopened" onClick="hide_folder('1_6')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">COLLETIBLES</span>
+<ul id="fold1_6" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_6_1" class="foldclosed" onClick="show_folder('1_6_1')" style="POSITION: absolute">+</span> <span id="hide1_6_1" class="foldopened" onClick="hide_folder('1_6_1')">-</span>
+RESOURCES
+<ul id="fold1_6_1" style="POSITION: relative; VISIBILITY: visible;"><li>gold
+
+</li>
+<li>timber
+
+</li>
+<li>ore
+
+</li>
+
+</ul>
+</li>
+<li>Rocks
+
+</li>
+<li>Tree
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; ">FUN</span>
+<ul><li>chests
+
+</li>
+<li>Buildings
+<ul><li>when crushed they reveal GOLD
+
+</li>
+<li>1st tier
+<ul><li>fell tree
+
+</li>
+<li>sticks and stones
+
+</li>
+<li>some stones
+
+</li>
+
+</ul>
+</li>
+<li>2nd
+<ul><li>Fence
+
+</li>
+<li>Wooden Barrier
+
+</li>
+<li>Old Shack
+
+</li>
+<li>fell Oak Tree
+
+</li>
+
+</ul>
+</li>
+<li>3rd
+<ul><li>Fell Redwood
+
+</li>
+<li>Reinforced Wooden Barrier
+
+</li>
+<li>Stone Wall
+
+</li>
+<li>Reinforced Stone Wall
+
+</li>
+
+</ul>
+</li>
+<li>Walls
+
+</li>
+<li>Houses
+
+</li>
+<li>Military
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7" class="foldclosed" onClick="show_folder('1_7')" style="POSITION: absolute">+</span> <span id="hide1_7" class="foldopened" onClick="hide_folder('1_7')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">MECHANICS</span>
+<ul id="fold1_7" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_7_1" class="foldclosed" onClick="show_folder('1_7_1')" style="POSITION: absolute">+</span> <span id="hide1_7_1" class="foldopened" onClick="hide_folder('1_7_1')">-</span>
+<span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Core Loop</span>
+<ul id="fold1_7_1" style="POSITION: relative; VISIBILITY: visible;"><li>castle walks
+<ul><li>enemies appear
+
+</li>
+<li>kill enemies to earn gold
+<ul><li>gold goes to Upgrades
+
+</li>
+
+</ul>
+</li>
+<li>Bosses drop boss souls
+<ul><li>boss soul go to funky upgrades
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_1_1" class="foldclosed" onClick="show_folder('1_7_1_1')" style="POSITION: absolute">+</span> <span id="hide1_7_1_1" class="foldopened" onClick="hide_folder('1_7_1_1')">-</span>
+clicker
+<ul id="fold1_7_1_1" style="POSITION: relative; VISIBILITY: visible;"><li>taps deal damage to enemies
+
+</li>
+
+</ul>
+</li>
+<li>the castle slows down depending on the enemy total power
+
+</li>
+<li>the castle moves over enemies if the enemy power is low enough
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">Monetize</span>
+<ul><li>no ads
+
+</li>
+<li>IAPS
+<ul><li>purchase onces
+<ul><li>remove all ads
+
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">actual content</span>
+
+</li>
+
+</ul>
+</li>
+<li>puchase forever
+<ul><li>in game currency
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>voluntary ads
+<ul><li>store
+
+</li>
+<li>watch ads to earn X
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_7_2" class="foldclosed" onClick="show_folder('1_7_2')" style="POSITION: absolute">+</span> <span id="hide1_7_2" class="foldopened" onClick="hide_folder('1_7_2')">-</span>
+Subscribe
+<ul id="fold1_7_2" style="POSITION: relative; VISIBILITY: visible;"><li>weekly chest
+
+</li>
+<li>monthly content
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">STORE</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; ">this is where the player can choose to watch ads to earn GOLD</span>
+
+</li>
+<li>buy or earn diamonds by watching ads
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">SCENES</span>
+<ul><li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">PLAY</span>
+<ul><li><span id="show1_8" class="foldclosed" onClick="show_folder('1_8')" style="POSITION: absolute">+</span> <span id="hide1_8" class="foldopened" onClick="hide_folder('1_8')">-</span>
+Upgrade Menu
+<ul id="fold1_8" style="POSITION: relative; VISIBILITY: visible;"><li>slides in from the left
+
+</li>
+<li>press &lt;- arrow and it slides back in
+
+</li>
+<li>a large scale representation of the Castle
+
+</li>
+<li>Castle components
+<ul><li>already build
+<ul><li>100% opaque
+
+</li>
+
+</ul>
+</li>
+<li>not yet built
+<ul><li>10% transparent
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Tap on Component
+<ul><li>a pop-up box shows
+
+</li>
+<li>Build [insert castle part name]
+
+</li>
+<li>Upgrade [insert castle part name]
+
+</li>
+<li>Pay [cost] Gold
+<ul><li>builds or upgrades the part
+
+</li>
+
+</ul>
+</li>
+<li>Cancel
+<ul><li>closes the pop-up box
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Environment
+
+</li>
+<li>Path
+
+</li>
+<li>MENUS
+<ul><li>UTILITY MENU
+<ul><li>TABS
+<ul><li>UPGRADE
+<ul><li>Zoomed in Version of the Castle
+
+</li>
+<li>Buildings to unlock are transparent
+
+</li>
+<li>Buildings that are unlocked are opaque
+
+</li>
+<li>Tapping on transparent buildings opens a dialog box
+<ul><li>Would you like to purchase this annex to your Castle
+
+</li>
+<li>cost: [X] Gold
+
+</li>
+<li>yes
+
+</li>
+<li>no
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>STORE
+<ul><li>Watch Ad for Gold
+
+</li>
+<li>Each ad You watch give you &nbsp;+ 1x gold
+<ul><li>for a limited time + [X]
+
+</li>
+<li>time left is [12hours :43 minutes]
+
+</li>
+<li>current multiplier is 4x
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>BUTTONS
+<ul><li>OPEN MENU
+
+</li>
+<li>CLOSE MENU
+
+</li>
+
+</ul>
+</li>
+<li>Location
+<ul><li>Top left
+
+</li>
+
+</ul>
+</li>
+<li>Size
+<ul><li>H
+<ul><li>Entire Screen
+
+</li>
+
+</ul>
+</li>
+<li>W
+<ul><li>1/3 screen
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>BURGER MENU
+<ul><li>opens top to bottom
+
+</li>
+<li>sound
+<ul><li>on
+
+</li>
+<li>off
+
+</li>
+
+</ul>
+</li>
+<li>Location
+<ul><li>Top Right
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">STORE</span>
+<ul><li>Watch Ad to Get X GOLD
+
+</li>
+
+</ul>
+</li>
+<li><span style="font-family: SansSerif, sans-serif; font-weight: bold; ">MAIN MENU</span>
+<ul><li>continue
+
+</li>
+<li>exit
+
+</li>
+<li>about
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Final Design
+<ul><li>Mechanics
+
+</li>
+<li>Scenes
+
+</li>
+<li>Collectibles
+<ul><li>Story
+<ul><li>what does a castle loot?
+
+</li>
+<li>armor and weapons?
+
+</li>
+<li>nope, brick and mortar, timber and tar
+
+</li>
+
+</ul>
+</li>
+<li>Currency
+<ul><li>Coins
+<ul><li>Copper
+
+</li>
+<li>Silver
+
+</li>
+<li>Gold
+
+</li>
+
+</ul>
+</li>
+<li>Gems
+<ul><li>Topaz
+
+</li>
+<li>Emerald
+
+</li>
+<li>Ruby
+
+</li>
+<li>Amethyst
+
+</li>
+<li>Diamond
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Building
+<ul><li>ore
+<ul><li>Iron
+
+</li>
+<li>Coal
+
+</li>
+<li>Stone
+
+</li>
+
+</ul>
+</li>
+<li>timber
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Enemies
+
+</li>
+<li>Wizard
+<ul><li>Castle
+
+</li>
+<li>Abilities
+
+</li>
+
+</ul>
+</li>
+<li>Environment
+
+</li>
+<li>Store
+
+</li>
+
+</ul>
+</li>
+
+</ul><SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
+</html>
